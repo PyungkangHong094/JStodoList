@@ -166,3 +166,30 @@ const krage = calculateKrAge(ageNumber);
 console.log("----korean agae----");
 console.log(krage);
 
+
+/* conditional  */ 
+// const age = prompt("몇 살이야?"); //메세지 스트링, 값을 넣어야하는거야
+const age = parseInt( prompt("몇 살이야?") ); //age = Nana
+
+
+console.log(isNaN(age)) //숫자인지 아닌지 확인 숫자면 False 
+
+//if 컨디션이 true 인지 false 인지 
+if(isNaN(age) || age < 0){ // if this is false go to else 
+    console.log("Please write a number or 정수를 써주세요 ")
+}
+else if (age<18){
+    console.log("yo too young")
+}
+else if (age >= 18 && age <= 50){
+    console.log("you can drink 18~50")
+}
+else {
+    console.log("It is number ")
+    console.log("You ar adult ")
+}
+ 
+parseInt(age, parseInt(age))//string to int  15를치면 앞에는 스트링, 뒤에는 숫자 
+
+
+
