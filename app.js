@@ -131,7 +131,7 @@ isPKFat = false; // 업데이트 베류어블
 
 const calculator = {
     add: function(a,b){
-        console.log("더하기 = " + a+b);
+        return a+b;
     },
     sub: function(a,b){
         console.log( a - b);
@@ -144,6 +144,9 @@ const calculator = {
     }
 };
 
+const plusRes = calculator.add(2,3);
+console.log("plus result " + plusRes);
+
 calculator.add(7,7)
 calculator.sub(2,3)
 calculator.div(7,7)
@@ -154,10 +157,12 @@ calculator.mul(7,7)
 // seller.name = "pkhong" //update the name 
 // seller.sexy = "soon"  // put it in the object 
 
-function mul(a,b){
-    // console.log(a*b);
-    console.log("=======")
-    console.log("곲하기는? " + a*b);
-}
+const ageNumber = 55;
+function calculateKrAge(ageOfforeigner){
+    return ageOfforeigner + 2;
+};
 
-mul(100,987);
+const krage = calculateKrAge(ageNumber);
+console.log("----korean agae----");
+console.log(krage);
+
