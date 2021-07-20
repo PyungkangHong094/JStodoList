@@ -30,11 +30,11 @@ function onLoginSubmit(event){
 //클릭이라는 이벤트를 넣어줌
 // loginButton.addEventListener("click",onLoginBtnClick);
 
-function handeLink(event){
-    event.preventDefault();
-    console.dir(event);
-}
+// function handeLink(event){
+//     event.preventDefault();
+//     console.dir(event);
+// }
 
 //summit evern
 loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", handeLink)
+// link.addEventListener("click", handeLink)
