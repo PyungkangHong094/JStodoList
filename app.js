@@ -4,6 +4,8 @@ const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const loginButton = document.querySelector("#login-form button");
 
+const link = document.querySelector("a");
+
 //기능을 넣어준것이다 (이름은 자유)
 // function onLoginBtnClick(){
 //     const value = loginInput.value;
@@ -28,5 +30,11 @@ function onLoginSubmit(event){
 //클릭이라는 이벤트를 넣어줌
 // loginButton.addEventListener("click",onLoginBtnClick);
 
+function handeLink(event){
+    event.preventDefault();
+    console.dir(event);
+}
+
 //summit evern
 loginForm.addEventListener("submit", onLoginSubmit);
+link.addEventListener("click", handeLink)
