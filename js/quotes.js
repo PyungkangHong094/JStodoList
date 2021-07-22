@@ -46,6 +46,6 @@ const  author = document.querySelector("#quote span:last-child");
 
 const todaytQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-
+//명언이랑 작가이름 
 quote.innerText = todaytQuote.quote;
 author.innerText = todaytQuote.author;
