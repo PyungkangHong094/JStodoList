@@ -18,9 +18,9 @@ function deleteTodo(event){
 function paintToDo(newTodo){
 
     const li_todo = document.createElement("li");
-
+    li_todo.id = newTodo.id;
     const span_todo = document.createElement("span");
-    span_todo.innerText = newTodo;
+    span_todo.innerText = newTodo.text;
 
     const button_todo = document.createElement("button");
     button_todo.innerText ="❌";
@@ -36,8 +36,13 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value;
     toDoInput.value = "";
-    toDos.push(newTodo);
-    paintToDo(newTodo);
+
+    const newTodoObj={
+        text:newTodo,
+        id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveTodo();
 }
 
@@ -48,6 +53,7 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
+    //restore the old todo
     toDos = parsedToDos;
     //같은 의미이다 parsedToDos.forEach((item) => console.log("this is thr trun of ", item));
     parsedToDos.forEach(paintToDo)
