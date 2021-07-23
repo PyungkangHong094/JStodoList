@@ -3,9 +3,10 @@ const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos"
+
 let toDos = [];
 
-function saveTodo(){
+function saveToDos(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
@@ -13,6 +14,8 @@ function deleteTodo(event){
     //누굴 지울껀지 타겟을하고 그 위에있는 앨리먼트를 본다 
     const li = event.target.parentElement;
     li.remove();
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
 function paintToDo(newTodo){
@@ -23,7 +26,7 @@ function paintToDo(newTodo){
     span_todo.innerText = newTodo;
 
     const button_todo = document.createElement("button");
-    button_todo.innerText ="❌";
+    button_todo.innerText =" ❌";
 
     button_todo.addEventListener("click",deleteTodo);
 
@@ -36,9 +39,13 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value;
     toDoInput.value = "";
-    toDos.push(newTodo);
-    paintToDo(newTodo);
-    saveTodo();
+    const newTodoObj = {
+        text: newTodo,
+        id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
+    saveToDos();
 }
 
 toDoform.addEventListener("submit", handleToDoSubmit);
@@ -52,3 +59,7 @@ if(savedToDos !== null){
     //같은 의미이다 parsedToDos.forEach((item) => console.log("this is thr trun of ", item));
     parsedToDos.forEach(paintToDo)
 }
+
+//item 을 지우고싶은걸 지우는거다 filter
+//어레이가있으면 필터는 함수가 필요하다고 합니다
+// function sexyFilter(item){ retrun }
