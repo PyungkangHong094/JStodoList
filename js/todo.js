@@ -13,6 +13,8 @@ function deleteTodo(event){
     //누굴 지울껀지 타겟을하고 그 위에있는 앨리먼트를 본다 
     const li = event.target.parentElement;
     li.remove();
+    toDos = toDos.filter((todo) => todo.id !== parseInt(li.id));
+    saveTodo();
 }
 
 function paintToDo(newTodo){
